@@ -1,0 +1,16 @@
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/darkest-days.dir
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/NightlyMemoryCheck.dir
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/Experimental.dir
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/Continuous.dir
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/Nightly.dir
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/PACKAGE.dir
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/glad.dir
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/baily/Developer/darkest-days/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/baily/Developer/darkest-days/build/libraries/glfw/CMakeFiles/PACKAGE.dir
+C:/Users/baily/Developer/darkest-days/build/libraries/glfw/CMakeFiles/RUN_TESTS.dir
+C:/Users/baily/Developer/darkest-days/build/libraries/glfw/CMakeFiles/ALL_BUILD.dir
+C:/Users/baily/Developer/darkest-days/build/libraries/glfw/src/CMakeFiles/glfw.dir
+C:/Users/baily/Developer/darkest-days/build/libraries/glfw/src/CMakeFiles/PACKAGE.dir
+C:/Users/baily/Developer/darkest-days/build/libraries/glfw/src/CMakeFiles/RUN_TESTS.dir
