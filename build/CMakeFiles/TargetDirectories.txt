@@ -14,3 +14,6 @@ C:/Users/baily/Developer/darkest-days/build/libraries/glfw/CMakeFiles/ALL_BUILD.
 C:/Users/baily/Developer/darkest-days/build/libraries/glfw/src/CMakeFiles/glfw.dir
 C:/Users/baily/Developer/darkest-days/build/libraries/glfw/src/CMakeFiles/PACKAGE.dir
 C:/Users/baily/Developer/darkest-days/build/libraries/glfw/src/CMakeFiles/RUN_TESTS.dir
+C:/Users/baily/Developer/darkest-days/build/libraries/imgui/CMakeFiles/imgui.dir
+C:/Users/baily/Developer/darkest-days/build/libraries/imgui/CMakeFiles/PACKAGE.dir
+C:/Users/baily/Developer/darkest-days/build/libraries/imgui/CMakeFiles/RUN_TESTS.dir

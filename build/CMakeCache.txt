@@ -294,6 +294,9 @@ CTEST_SUBMIT_RETRY_DELAY:STRING=5
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
 
+//Path to a program.
+GITCOMMAND:FILEPATH=C:/Program Files/Git/cmd/git.exe
+
 //Value Computed by CMake
 GLFW_BINARY_DIR:STATIC=C:/Users/baily/Developer/darkest-days/build/libraries/glfw
 
@@ -326,6 +329,12 @@ darkest-days_BINARY_DIR:STATIC=C:/Users/baily/Developer/darkest-days/build
 
 //Value Computed by CMake
 darkest-days_SOURCE_DIR:STATIC=C:/Users/baily/Developer/darkest-days
+
+//Dependencies for the target
+glad_LIB_DEPENDS:STATIC=general;darkest-days;general;glfw;
+
+//Dependencies for the target
+imgui_LIB_DEPENDS:STATIC=general;darkest-days;general;glfw;general;darkest-days;general;glad;
 
 
 ########################
@@ -448,7 +457,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib
@@ -522,6 +531,8 @@ CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
 DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//ADVANCED property for variable: GITCOMMAND
+GITCOMMAND-ADVANCED:INTERNAL=1
 //Build the GLFW documentation
 GLFW_BUILD_DOCS:INTERNAL=OFF
 //Build the GLFW example programs

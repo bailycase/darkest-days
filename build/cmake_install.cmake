@@ -35,6 +35,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/Users/baily/Developer/darkest-days/build/libraries/glfw/cmake_install.cmake")
+  include("C:/Users/baily/Developer/darkest-days/build/libraries/imgui/cmake_install.cmake")
 
 endif()
 
