@@ -4,6 +4,7 @@
 #include <glad/glad.h>
 #include <iostream>
 #include "Renderer/VertexArray.hpp"
+#include "Renderer/LmGui.hpp"
 
 class Game
 {
