@@ -4,10 +4,13 @@
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\ImGui.cpp">
+    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\IndexBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\IndexBuffer.cpp">
+    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\LmGui.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\OrthographicCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Renderer.cpp">
@@ -33,10 +36,13 @@
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Game.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\ImGui.hpp">
+    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\IndexBuffer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\IndexBuffer.hpp">
+    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\LmGui.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\OrthographicCamera.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Renderer.hpp">

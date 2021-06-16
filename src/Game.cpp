@@ -29,7 +29,10 @@ Game::Game() : m_Window(glfwCreateWindow(800, 600, "Darkest Days", NULL, NULL))
     }
     glViewport(0, 0, 800, 600);
     glfwSetFramebufferSizeCallback(m_Window, &framebuffer_size_callback);
-    glClearColor(0.3f, 0.0f, 0.0f, 1.0f);
+    glClearColor(1.0f, 1.1f, 0.75f, 1.0f);
+    glEnable(GL_DEPTH_TEST);
+
+    // Lmgui::Init(m_Window);
 }
 
 Game::~Game()
@@ -39,10 +42,12 @@ Game::~Game()
 void Game::Run()
 {
     Renderer renderer;
+    renderer.Init();
     while (!glfwWindowShouldClose(m_Window))
     {
         processInput(m_Window);
         renderer.Draw();
+        // Lmgui::RenderImgui();
         glfwSwapBuffers(m_Window);
         glfwPollEvents();
     }

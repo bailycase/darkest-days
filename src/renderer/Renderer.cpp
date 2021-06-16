@@ -1,45 +1,81 @@
 #include "Renderer.hpp"
 
-glm::mat4 proj = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f);
-glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0));
-glm::vec3 translation(200, 200, 0);
+float vertices[] = {
+    // start first quad
+    -0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,  // 1 a
+    0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,   // 2 a
+    0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,  // 3 a
+    -0.5f, 0.5f, -0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,  // 1 b
+    -0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, // 2 b
+    0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,  // 3 b
+    // end
+    // start second quad
+    -0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,  // 1 c
+    0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,   // 2 c
+    0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,  // 3 c
+    -0.5f, 0.5f, 0.5f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,  // 1 d
+    -0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, // 2 d
+    0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,  // 3 d
+    //end
+    // start third quad
+    -0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,   // 1 c
+    -0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // 2 c
+    -0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 3 c
+    -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 1 c
+    -0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // 2 c
+    -0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,   // 3 c
+    // end
+    //start 4th quad
+    0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,   // 1 c
+    0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // 2 c
+    0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 3 c
+    0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 1 c
+    0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // 2 c
+    0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,   // 3 c
+    //end
+    //start 5th quad
+    -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 1 c
+    0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // 2 c
+    0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,   // 3 c
+    0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,   // 1 c
+    -0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // 2 c
+    -0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 3 c
+    //end
+    //start 6th quad
+    -0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, // 1 c
+    0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // 2 c
+    0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,   // 3 c
+    0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f,   // 1 c
+    -0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // 2 c
+    -0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // 3 c
+    //end
+};
 
+glm::vec3 cubePositions[] = {
+    glm::vec3(0.0f, 0.0f, 0.0f),
+    glm::vec3(2.0f, 5.0f, -15.0f),
+    glm::vec3(-1.5f, -2.2f, -2.5f),
+    glm::vec3(-3.8f, -2.0f, -12.3f),
+    glm::vec3(2.4f, -0.4f, -3.5f),
+    glm::vec3(-1.7f, 3.0f, -7.5f),
+    glm::vec3(1.3f, -2.0f, -2.5f),
+    glm::vec3(1.5f, 2.0f, -2.5f),
+    glm::vec3(1.5f, 0.2f, -1.5f),
+    glm::vec3(-1.3f, 1.0f, -1.5f),
+};
 unsigned int indices[] = {
     // note that we start from 0!
     0, 1, 2, // first triangle
-    2, 3, 0  // second triangle
+    2, 3, 0, // second triangle
+
 };
 
-void Renderer::Render()
+Renderer::Renderer()
 {
 }
 
 void Renderer::Init()
 {
-}
-
-void Renderer::Draw()
-{
-    glClear(GL_COLOR_BUFFER_BIT);
-    m_VAO.bind();
-    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, indices);
-    // glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
-    // glm::mat4 mvp = proj * view * model;
-    // m_Shader.SetUniformMat4f("u_MVP", mvp);
-}
-
-Renderer::~Renderer()
-{
-}
-
-Renderer::Renderer()
-{
-    float vertices[] = {
-        0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,   // top right
-        0.0f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,  // bottom right
-        -0.0f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, // bottom left
-        -0.5f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f   // top left
-    };
 
     float texCoords[] = {0.0f,
                          0.0f,
@@ -55,9 +91,52 @@ Renderer::Renderer()
     layout.Push<float>(3);
     layout.Push<float>(2);
     m_VAO.AddBuffer(vb, layout);
-    Shader m_Shader = Shader("res/shaders/basic.shader");
-    m_Shader.Bind();
+    m_Shader = new Shader("res/shaders/basic.shader");
+    m_Shader->Bind();
 
-    Texture texture("res/textures/container.jpg");
+    Texture texture("res/textures/asphalt.png");
     texture.bind();
+}
+
+void Renderer::Draw()
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    m_VAO.bind();
+
+    // camera/view transformation
+    glm::mat4 view = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+    float radius = 10.0f;
+    float camX = sin(glfwGetTime()) * radius;
+    float camZ = cos(glfwGetTime()) * radius;
+    view = glm::lookAt(glm::vec3(camX, 0.0f, camZ), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+    glm::mat4 projection;
+    projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+    // model = glm::rotate(model, glm::radians(-50.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+    // model = glm::rotate(model, (float)glfwGetTime() * glm::radians(120.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+
+    // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    m_Shader->Bind();
+    for (unsigned int i = 0; i < 10; i++)
+    {
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model, cubePositions[i]);
+        float angle = 20.0f * i;
+        model = glm::rotate(model, (float)glfwGetTime() * glm::radians(20.0f * (i + 1)), glm::vec3(i, 1.0f, 1.0f));
+
+        glm::mat4 MVP = projection * view * model;
+        m_Shader->SetUniformMat4f("MVP", MVP);
+        glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices));
+    }
+
+    // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, indices);
+}
+
+Renderer::~Renderer()
+{
+}
+
+void Renderer::submitQuad()
+{
 }

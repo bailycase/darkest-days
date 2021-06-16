@@ -17,11 +17,11 @@ class Renderer
 public:
     Renderer();
     ~Renderer();
-    void Render();
+    void submitQuad();
     void Init();
     void Draw();
 
 private:
     VertexArray m_VAO;
-    Shader m_Shader;
+    Shader *m_Shader;
 };

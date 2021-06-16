@@ -6,8 +6,9 @@ cmake_policy(SET CMP0009 NEW)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/baily/Developer/darkest-days/src/*.cpp")
 set(OLD_GLOB
   "C:/Users/baily/Developer/darkest-days/src/Game.cpp"
-  "C:/Users/baily/Developer/darkest-days/src/Renderer/ImGui.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/IndexBuffer.cpp"
+  "C:/Users/baily/Developer/darkest-days/src/Renderer/LmGui.cpp"
+  "C:/Users/baily/Developer/darkest-days/src/Renderer/OrthographicCamera.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Renderer.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Shader.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Texture.cpp"
@@ -24,8 +25,9 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/baily/Developer/darkest-days/src/*.hpp")
 set(OLD_GLOB
   "C:/Users/baily/Developer/darkest-days/src/Game.hpp"
-  "C:/Users/baily/Developer/darkest-days/src/Renderer/ImGui.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/IndexBuffer.hpp"
+  "C:/Users/baily/Developer/darkest-days/src/Renderer/LmGui.hpp"
+  "C:/Users/baily/Developer/darkest-days/src/Renderer/OrthographicCamera.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Renderer.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Shader.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Texture.hpp"

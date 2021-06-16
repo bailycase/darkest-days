@@ -8,13 +8,13 @@ layout (location = 2) in vec2 aTexCoord;
 out vec4 ourColor;
 out vec2 TexCoord;
 
-// uniform mat4 u_MVP;
+uniform mat4 MVP;
 
 void main()
 {
-    gl_Position =  vec4(position, 1.0f);
+    gl_Position =  MVP * vec4(position, 1.0f);
     ourColor = aColor;
-    // TexCoord = aTexCoord;
+    TexCoord = aTexCoord;
 };
 
 
@@ -23,11 +23,11 @@ void main()
 
 out vec4 vertexColor;
 in vec4 ourColor;
-// in vec2 TexCoord;
+in vec2 TexCoord;
 
-// uniform sampler2D ourTexture;
+uniform sampler2D ourTexture;
 
 void main()
 {
-    vertexColor = ourColor;
+    vertexColor = texture(ourTexture, TexCoord);
 };
