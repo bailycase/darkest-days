@@ -70,8 +70,9 @@ unsigned int indices[] = {
 
 };
 
-Renderer::Renderer()
+Renderer::Renderer(GLFWwindow &window)
 {
+    m_Window = window;
 }
 
 void Renderer::Init()
@@ -94,8 +95,10 @@ void Renderer::Init()
     m_Shader = new Shader("res/shaders/basic.shader");
     m_Shader->Bind();
 
-    Texture texture("res/textures/asphalt.png");
+    Texture texture("res/textures/container.jpg");
     texture.bind();
+
+    m_Camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
 }
 
 void Renderer::Draw()
@@ -104,12 +107,7 @@ void Renderer::Draw()
     m_VAO.bind();
 
     // camera/view transformation
-    glm::mat4 view = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-    float radius = 10.0f;
-    float camX = sin(glfwGetTime()) * radius;
-    float camZ = cos(glfwGetTime()) * radius;
-    view = glm::lookAt(glm::vec3(camX, 0.0f, camZ), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-
+    glm::mat4 view = m_Camera->getViewMatrix();
     glm::mat4 projection;
     projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
     // model = glm::rotate(model, glm::radians(-50.0f), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -129,14 +127,28 @@ void Renderer::Draw()
         m_Shader->SetUniformMat4f("MVP", MVP);
         glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices));
     }
-
+    processInput(m_Window);
     // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, indices);
+}
+
+void Renderer::processInput(GLFWwindow *window)
+{
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        m_Camera->ProcessKeyboard(FORWARD, 10);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        m_Camera->ProcessKeyboard(BACKWARD, 10);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        m_Camera->ProcessKeyboard(LEFT, 10);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        m_Camera->ProcessKeyboard(RIGHT, 10);
 }
 
 Renderer::~Renderer()
 {
 }
 
-void Renderer::submitQuad()
-{
-}
+// void Renderer::submitQuad(Texture *texture, Vec4 *coords)
+// {
+// }

@@ -314,12 +314,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Game.cpp" />
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Game.hpp" />
+    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Camera.cpp" />
+    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Camera.hpp" />
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\IndexBuffer.cpp" />
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\IndexBuffer.hpp" />
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\LmGui.cpp" />
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\LmGui.hpp" />
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\OrthographicCamera.cpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\OrthographicCamera.hpp" />
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Renderer.cpp" />
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Renderer.hpp" />
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Shader.cpp" />
@@ -331,6 +331,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\VertexBuffer.cpp" />
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\VertexBuffer.hpp" />
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\VertexBufferLayout.hpp" />
+    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Window.cpp" />
+    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Window.hpp" />
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>

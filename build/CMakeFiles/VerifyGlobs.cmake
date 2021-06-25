@@ -6,14 +6,15 @@ cmake_policy(SET CMP0009 NEW)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/baily/Developer/darkest-days/src/*.cpp")
 set(OLD_GLOB
   "C:/Users/baily/Developer/darkest-days/src/Game.cpp"
+  "C:/Users/baily/Developer/darkest-days/src/Renderer/Camera.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/IndexBuffer.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/LmGui.cpp"
-  "C:/Users/baily/Developer/darkest-days/src/Renderer/OrthographicCamera.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Renderer.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Shader.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Texture.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/VertexArray.cpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/VertexBuffer.cpp"
+  "C:/Users/baily/Developer/darkest-days/src/Renderer/Window.cpp"
   "C:/Users/baily/Developer/darkest-days/src/main.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
@@ -25,15 +26,16 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "C:/Users/baily/Developer/darkest-days/src/*.hpp")
 set(OLD_GLOB
   "C:/Users/baily/Developer/darkest-days/src/Game.hpp"
+  "C:/Users/baily/Developer/darkest-days/src/Renderer/Camera.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/IndexBuffer.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/LmGui.hpp"
-  "C:/Users/baily/Developer/darkest-days/src/Renderer/OrthographicCamera.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Renderer.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Shader.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/Texture.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/VertexArray.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/VertexBuffer.hpp"
   "C:/Users/baily/Developer/darkest-days/src/Renderer/VertexBufferLayout.hpp"
+  "C:/Users/baily/Developer/darkest-days/src/Renderer/Window.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
