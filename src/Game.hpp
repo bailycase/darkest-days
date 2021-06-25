@@ -3,6 +3,7 @@
 #include "Renderer/Renderer.hpp"
 #include <glad/glad.h>
 #include <iostream>
+#include "Renderer/Window.hpp"
 #include "Renderer/VertexArray.hpp"
 #include "Renderer/LmGui.hpp"
 
@@ -13,12 +14,9 @@ public:
     ~Game();
     void Run();
     void handleEvents();
+    GLFWwindow *getWindow();
 
 private:
     GLFWwindow *m_Window;
     Renderer *m_Renderer = nullptr;
-    static void framebuffer_size_callback(GLFWwindow *window, int width, int height)
-    {
-        glViewport(0, 0, width, height);
-    }
 };

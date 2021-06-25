@@ -11,17 +11,22 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include "Camera.hpp"
+#include "Window.hpp"
 
 class Renderer
 {
 public:
-    Renderer();
+    Renderer(GLFWwindow &window);
     ~Renderer();
-    void submitQuad();
+    // void submitQuad(Texture *texture, Vec4 *coords);
     void Init();
     void Draw();
 
 private:
     VertexArray m_VAO;
     Shader *m_Shader;
+    Camera *m_Camera;
+    GLFWwindow *m_Window;
+    void processInput(GLFWwindow *window);
 };
