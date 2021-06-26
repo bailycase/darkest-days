@@ -70,14 +70,13 @@ unsigned int indices[] = {
 
 };
 
-Renderer::Renderer(GLFWwindow &window)
+Renderer::Renderer()
 {
-    m_Window = window;
 }
 
-void Renderer::Init()
+void Renderer::Init(GLFWwindow *window)
 {
-
+    m_Window = window;
     float texCoords[] = {0.0f,
                          0.0f,
                          1.0f,
