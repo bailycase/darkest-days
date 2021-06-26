@@ -13,7 +13,7 @@ Game::~Game()
 void Game::Run()
 {
     Renderer renderer;
-    renderer.Init();
+    renderer.Init(m_Window);
     // for (unsigned int i = 0; i < 32; i++)
     // {
     //     renderer.submitQuad()

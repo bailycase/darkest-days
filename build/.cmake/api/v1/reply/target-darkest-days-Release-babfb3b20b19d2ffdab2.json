@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "MinSizeRel/darkest-days.exe"
+			"path" : "Release/darkest-days.exe"
 		},
 		{
-			"path" : "MinSizeRel/darkest-days.pdb"
+			"path" : "Release/darkest-days.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -97,7 +97,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O1 /Ob1 /DNDEBUG"
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG"
 				}
 			],
 			"defines" : 
@@ -167,11 +167,11 @@
 		},
 		{
 			"backtrace" : 2,
-			"id" : "imgui::@136c5ea3e61728afbd98"
+			"id" : "glad::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "glad::@6890427a1f51a3e7e1df"
+			"id" : "imgui::@136c5ea3e61728afbd98"
 		},
 		{
 			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
@@ -183,7 +183,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O1 /Ob1 /DNDEBUG",
+				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MD /O2 /Ob2 /DNDEBUG",
 				"role" : "flags"
 			},
 			{
@@ -192,15 +192,15 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "libraries\\imgui\\MinSizeRel\\imgui.lib",
+				"fragment" : "libraries\\imgui\\Release\\imgui.lib",
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "MinSizeRel\\glad.lib",
+				"fragment" : "Release\\glad.lib",
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "libraries\\glfw\\src\\MinSizeRel\\glfw3.lib",
+				"fragment" : "libraries\\glfw\\src\\Release\\glfw3.lib",
 				"role" : "libraries"
 			},
 			{

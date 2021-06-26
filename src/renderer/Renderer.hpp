@@ -17,10 +17,10 @@
 class Renderer
 {
 public:
-    Renderer(GLFWwindow &window);
+    Renderer();
     ~Renderer();
     // void submitQuad(Texture *texture, Vec4 *coords);
-    void Init();
+    void Init(GLFWwindow *window);
     void Draw();
 
 private:
