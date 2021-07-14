@@ -1,4 +1,5 @@
 #pragma once
+#include <vulkan.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
@@ -8,7 +9,8 @@ class Window
 public:
 	Window();
 	void initWindow();
-	GLFWwindow *getWindow();
+	void cleanupWindow();
+	GLFWwindow &getWindow();
 
 private:
 	GLFWwindow *m_Window;

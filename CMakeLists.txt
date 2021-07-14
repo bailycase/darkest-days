@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.0.0)
 project(darkest-days VERSION 0.1.0)
 
+if(MSVC)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++latest")
+else(MSVC)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+endif(MSVC)
+
 
 
 #src files
@@ -46,10 +52,14 @@ target_include_directories(${PROJECT_NAME} PRIVATE "${GLM_DIR}")
 #stb_image
 include_directories("${LIB_DIR}/stb_image")
 
+#vulkan
+include_directories("${LIB_DIR}/vulkan")
+set(LIB_VULKAN "${LIB_DIR}/vulkan/vulkan-1.lib")
+
 #imgui
 set(IMG_DIR "${LIB_DIR}/imgui")
 # target_compile_definitions(${PROJECT_NAME} PUBLIC IMG_DIR)
 include_directories("${IMG_DIR}")
 add_subdirectory("${IMG_DIR}")
-target_link_libraries(${PROJECT_NAME} imgui)
+target_link_libraries(${PROJECT_NAME} imgui ${LIB_VULKAN})
 

@@ -2,8 +2,12 @@
 
 Game::Game()
 {
-    Window *window = new Window();
-    m_Window = window->getWindow();
+    Window window;
+    window.initWindow();
+    m_Window = &window.getWindow();
+
+    VulkanRenderer Renderer;
+    Renderer.initVulkan(m_Window);
 }
 
 Game::~Game()
@@ -12,8 +16,8 @@ Game::~Game()
 
 void Game::Run()
 {
-    Renderer renderer;
-    renderer.Init(m_Window);
+    // Renderer renderer;
+    // renderer.Init(m_Window);
     // for (unsigned int i = 0; i < 32; i++)
     // {
     //     renderer.submitQuad()
@@ -22,12 +26,11 @@ void Game::Run()
     while (!glfwWindowShouldClose(m_Window))
     {
         // processInput(m_Window);
-        renderer.Draw();
+        // renderer.Draw();
         // Lmgui::RenderImgui();
-        glfwSwapBuffers(m_Window);
+        // glfwSwapBuffers(m_Window);
         glfwPollEvents();
     }
-    glfwTerminate();
 }
 
 void Game::handleEvents()

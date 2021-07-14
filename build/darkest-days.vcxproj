@@ -86,12 +86,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -103,10 +104,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;GLFW_INCLUDE_NONE;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -114,7 +115,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>libraries\imgui\Debug\imgui.lib;Debug\glad.lib;libraries\glfw\src\Debug\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>libraries\imgui\Debug\imgui.lib;..\libraries\vulkan\vulkan-1.lib;Debug\glad.lib;libraries\glfw\src\Debug\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -129,10 +130,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -146,10 +148,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLFW_INCLUDE_NONE;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -157,7 +159,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>libraries\imgui\Release\imgui.lib;Release\glad.lib;libraries\glfw\src\Release\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>libraries\imgui\Release\imgui.lib;..\libraries\vulkan\vulkan-1.lib;Release\glad.lib;libraries\glfw\src\Release\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -172,10 +174,11 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>MinSpace</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -189,10 +192,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLFW_INCLUDE_NONE;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -200,7 +203,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>libraries\imgui\MinSizeRel\imgui.lib;MinSizeRel\glad.lib;libraries\glfw\src\MinSizeRel\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>libraries\imgui\MinSizeRel\imgui.lib;..\libraries\vulkan\vulkan-1.lib;MinSizeRel\glad.lib;libraries\glfw\src\MinSizeRel\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -215,11 +218,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -231,10 +235,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;GLFW_INCLUDE_NONE;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\baily\Developer\darkest-days\src;C:\Users\baily\Developer\darkest-days\libraries\glfw\include;C:\Users\baily\Developer\darkest-days\libraries\glad\include;C:\Users\baily\Developer\darkest-days\libraries\glm;C:\Users\baily\Developer\darkest-days\libraries\stb_image;C:\Users\baily\Developer\darkest-days\libraries\vulkan;C:\Users\baily\Developer\darkest-days\libraries\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -242,7 +246,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>libraries\imgui\RelWithDebInfo\imgui.lib;RelWithDebInfo\glad.lib;libraries\glfw\src\RelWithDebInfo\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>libraries\imgui\RelWithDebInfo\imgui.lib;..\libraries\vulkan\vulkan-1.lib;RelWithDebInfo\glad.lib;libraries\glfw\src\RelWithDebInfo\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -314,25 +318,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Game.cpp" />
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Game.hpp" />
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Camera.cpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Camera.hpp" />
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\IndexBuffer.cpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\IndexBuffer.hpp" />
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\LmGui.cpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\LmGui.hpp" />
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Renderer.cpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Renderer.hpp" />
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Shader.cpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Shader.hpp" />
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Texture.cpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Texture.hpp" />
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\VertexArray.cpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\VertexArray.hpp" />
-    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\VertexBuffer.cpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\VertexBuffer.hpp" />
-    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\VertexBufferLayout.hpp" />
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Window.cpp" />
     <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\Window.hpp" />
+    <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\Renderer\vulkan\VulkanRenderer.cpp" />
+    <ClInclude Include="C:\Users\baily\Developer\darkest-days\src\Renderer\vulkan\VulkanRenderer.hpp" />
     <ClCompile Include="C:\Users\baily\Developer\darkest-days\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
