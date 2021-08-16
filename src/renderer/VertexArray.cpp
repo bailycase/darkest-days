@@ -3,7 +3,6 @@
 
 VertexArray::VertexArray()
 {
-    glGenVertexArrays(1, &m_VertexArrayID);
 }
 
 VertexArray::~VertexArray()
@@ -14,6 +13,11 @@ VertexArray::~VertexArray()
     // }
 
     glDeleteVertexArrays(1, &m_VertexArrayID);
+}
+
+void VertexArray::CreateArray()
+{
+    glGenVertexArrays(1, &m_VertexArrayID);
 }
 
 void VertexArray::AddBuffer(const VertexBuffer &vb, const VertexBufferLayout &layout)

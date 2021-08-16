@@ -1,9 +1,12 @@
 #include "Game.hpp"
+#include <memory>
 
-Game::Game()
+Game::Game() : m_Renderer(std::make_unique<Renderer>())
 {
     Window *window = new Window();
     m_Window = window->getWindow();
+    m_InputHandler = &InputHandler(m_Window);
+    m_Renderer->Init(m_Window);
 }
 
 Game::~Game()
@@ -12,26 +15,16 @@ Game::~Game()
 
 void Game::Run()
 {
-    Renderer renderer;
-    renderer.Init(m_Window);
-    // for (unsigned int i = 0; i < 32; i++)
-    // {
-    //     renderer.submitQuad()
-    // }
 
     while (!glfwWindowShouldClose(m_Window))
     {
-        // processInput(m_Window);
-        renderer.Draw();
+        m_Renderer->Draw();
         // Lmgui::RenderImgui();
         glfwSwapBuffers(m_Window);
         glfwPollEvents();
+        m_Renderer->Update();
     }
     glfwTerminate();
-}
-
-void Game::handleEvents()
-{
 }
 
 GLFWwindow *Game::getWindow()

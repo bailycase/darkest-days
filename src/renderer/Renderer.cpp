@@ -90,18 +90,24 @@ void Renderer::Init(GLFWwindow *window)
     layout.Push<float>(3);
     layout.Push<float>(3);
     layout.Push<float>(2);
+    m_VAO.CreateArray();
     m_VAO.AddBuffer(vb, layout);
-    m_Shader = new Shader("res/shaders/basic.shader");
+    m_Shader = new Shader("../../res/shaders/basic.shader");
     m_Shader->Bind();
 
-    Texture texture("res/textures/container.jpg");
+    Texture texture("../../res/textures/container.jpg");
     texture.bind();
 
-    m_Camera = new Camera(glm::vec3(0.0f, 0.0f, 3.0f));
+    m_Camera = new Camera(glm::vec3(0.0f, 0.0f, 0.0f));
 }
 
 void Renderer::Draw()
 {
+    // update delta time
+    float currentFrame = glfwGetTime();
+    m_DeltaTime = currentFrame - m_LastFrame;
+    m_LastFrame = currentFrame;
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     m_VAO.bind();
 
@@ -109,9 +115,6 @@ void Renderer::Draw()
     glm::mat4 view = m_Camera->getViewMatrix();
     glm::mat4 projection;
     projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
-    // model = glm::rotate(model, glm::radians(-50.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-
-    // model = glm::rotate(model, (float)glfwGetTime() * glm::radians(120.0f), glm::vec3(0.5f, 1.0f, 0.0f));
 
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     m_Shader->Bind();
@@ -122,32 +125,18 @@ void Renderer::Draw()
         float angle = 20.0f * i;
         model = glm::rotate(model, (float)glfwGetTime() * glm::radians(20.0f * (i + 1)), glm::vec3(i, 1.0f, 1.0f));
 
-        glm::mat4 MVP = projection * view * model;
+        glm::mat4 MVP = projection * view;
         m_Shader->SetUniformMat4f("MVP", MVP);
         glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices));
     }
-    processInput(m_Window);
     // glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, indices);
 }
 
-void Renderer::processInput(GLFWwindow *window)
+void Renderer::Update()
 {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        m_Camera->ProcessKeyboard(FORWARD, 10);
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        m_Camera->ProcessKeyboard(BACKWARD, 10);
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        m_Camera->ProcessKeyboard(LEFT, 10);
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        m_Camera->ProcessKeyboard(RIGHT, 10);
+    m_Camera->UpdatePosition(m_DeltaTime);
 }
 
 Renderer::~Renderer()
 {
 }
-
-// void Renderer::submitQuad(Texture *texture, Vec4 *coords)
-// {
-// }

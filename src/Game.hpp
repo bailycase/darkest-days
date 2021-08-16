@@ -6,6 +6,7 @@
 #include "Renderer/Window.hpp"
 #include "Renderer/VertexArray.hpp"
 #include "Renderer/LmGui.hpp"
+#include "InputHandler/InputHandler.hpp"
 
 class Game
 {
@@ -13,10 +14,12 @@ public:
     Game();
     ~Game();
     void Run();
-    void handleEvents();
     GLFWwindow *getWindow();
 
 private:
     GLFWwindow *m_Window;
-    Renderer *m_Renderer = nullptr;
+    // Renderer *m_Renderer = nullptr;
+    // std::unique_ptr<GLFWwindow> m_Window;
+    std::unique_ptr<Renderer> m_Renderer;
+    InputHandler *m_InputHandler;
 };

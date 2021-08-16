@@ -24,15 +24,51 @@ void Camera::updateCameraVectors()
 	m_Up = glm::normalize(glm::cross(m_Right, m_Front));
 }
 
-void Camera::ProcessKeyboard(CameraMovement direction, float deltaTime)
+void Camera::UpdatePosition(float deltaTime)
 {
+	// calculate the new looking direction according to mouse position
+	double x = InputHandler::m_MousePos.x;
+	double y = InputHandler::m_MousePos.y;
+
+	double lastX = InputHandler::m_MousePos.lastX;
+	double lastY = InputHandler::m_MousePos.lastY;
+
+	double xOffset = (x - lastX) * m_MouseSensitivity;
+	double yOffset = (lastY - y) * m_MouseSensitivity;
+
+	InputHandler::m_MousePos.lastX = x;
+	InputHandler::m_MousePos.lastY = y;
+
+	m_Yaw -= xOffset;
+	m_Pitch += yOffset;
+
+	if (m_Pitch > 89.0f)
+		m_Pitch = 89.0f;
+	if (m_Pitch < -89.0f)
+		m_Pitch = -89.0f;
+
+	glm::vec3 front;
+	front.x = cos(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
+	front.y = sin(glm::radians(m_Pitch));
+	front.z = sin(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
+
+	m_Front = glm::normalize(front);
+
 	float velocity = m_MovementSpeed * deltaTime;
-	if (direction == FORWARD)
+	if (InputHandler::keyIsDown('w'))
+	{
 		m_Position += m_Front * velocity;
-	if (direction == BACKWARD)
-		m_Position -= m_Front * velocity;
-	if (direction == LEFT)
+	}
+	if (InputHandler::keyIsDown('a'))
+	{
 		m_Position -= m_Right * velocity;
-	if (direction == RIGHT)
+	}
+	if (InputHandler::keyIsDown('s'))
+	{
+		m_Position -= m_Front * velocity;
+	}
+	if (InputHandler::keyIsDown('d'))
+	{
 		m_Position += m_Right * velocity;
+	}
 }

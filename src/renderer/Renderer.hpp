@@ -19,14 +19,16 @@ class Renderer
 public:
     Renderer();
     ~Renderer();
-    // void submitQuad(Texture *texture, Vec4 *coords);
     void Init(GLFWwindow *window);
     void Draw();
+    void Update();
 
 private:
     VertexArray m_VAO;
     Shader *m_Shader;
     Camera *m_Camera;
     GLFWwindow *m_Window;
+    float m_DeltaTime = 0.0f;
+    float m_LastFrame = 0.0f;
     void processInput(GLFWwindow *window);
 };
