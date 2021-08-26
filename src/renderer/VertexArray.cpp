@@ -12,7 +12,7 @@ VertexArray::~VertexArray()
     //     delete m_Buffers[i];
     // }
 
-    glDeleteVertexArrays(1, &m_VertexArrayID);
+    // glDeleteVertexArrays(1, &m_VertexArrayID);
 }
 
 void VertexArray::CreateArray()

@@ -1,4 +1,5 @@
 #include "LmGui.hpp"
+#include "InputHandler/InputHandler.hpp"
 #include <iostream>
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
@@ -33,6 +34,8 @@ void Lmgui::RenderImgui()
 	ImGui::NewLine();
 	//     ImGui::Checkbox("Enable Wireframe", &wireFrameEnabled);
 	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	ImGui::NewLine();
+	ImGui::Text("Current pressed key: %c", InputHandler::GetCurrentPressedKey());
 	ImGui::End();
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

@@ -1,11 +1,12 @@
 #pragma once
 #include <GLFW/glfw3.h>
-#include "Renderer/Renderer.hpp"
+#include "renderer/Renderer.hpp"
 #include <glad/glad.h>
 #include <iostream>
-#include "Renderer/Window.hpp"
-#include "Renderer/VertexArray.hpp"
-#include "Renderer/LmGui.hpp"
+#include <memory>
+#include "renderer/Window.hpp"
+#include "renderer/VertexArray.hpp"
+#include "renderer/LmGui.hpp"
 #include "InputHandler/InputHandler.hpp"
 
 class Game

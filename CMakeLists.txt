@@ -8,6 +8,8 @@ set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libraries")
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "${SRC_DIR}/*.cpp" "${SRC_DIR}/*.hpp")
 
+#copy assets?
+file(COPY res DESTINATION ${CMAKE_BINARY_DIR})
 
 
 #exec def and properties

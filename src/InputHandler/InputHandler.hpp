@@ -1,4 +1,4 @@
-#pragma once;
+#pragma once
 #include <iostream>
 #include <vector>
 #include <unordered_map>
@@ -18,12 +18,13 @@ class InputHandler
 private:
 	static std::unordered_map<char, bool> m_PressedKeys;
 	static bool m_InitialMouseEnter;
+	static char m_LastPressedKey;
 
 public:
-	enum EventTypes;
 	InputHandler(GLFWwindow *window);
+	static char GetCurrentPressedKey();
 	static void HandleMouseInput(double x, double y);
-	static void HandleKeyboardInput(int key);
+	static void HandleKeyboardInput(int key, int action);
 	void init(GLFWwindow *window);
 	static bool keyIsDown(char key);
 	static MousePos MousePosition();
