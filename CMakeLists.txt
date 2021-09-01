@@ -51,7 +51,15 @@ include_directories("${LIB_DIR}/stb_image")
 #imgui
 set(IMG_DIR "${LIB_DIR}/imgui")
 # target_compile_definitions(${PROJECT_NAME} PUBLIC IMG_DIR)
+
+#assimp
+find_package(assimp REQUIRED)
+if(ASSIMP_FOUND)
+    include_directories(${ASSIMP_INCLUDE_DIR})
+endif() 
+
 include_directories("${IMG_DIR}")
 add_subdirectory("${IMG_DIR}")
 target_link_libraries(${PROJECT_NAME} imgui)
+target_link_libraries(${PROJECT_NAME} ${ASSIMP_LIBRARIES})
 

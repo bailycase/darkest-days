@@ -35,12 +35,6 @@ void InputHandler::HandleMouseInput(double x, double y)
 
 void InputHandler::HandleKeyboardInput(int key, int action)
 {
-	// 0 key release
-	// 1 key press
-	// 2 key hold
-
-	std::cout << action << std::endl;
-
 	auto mappedKey = Keys.find(key);
 
 	if (mappedKey != Keys.end())
@@ -55,17 +49,6 @@ void InputHandler::HandleKeyboardInput(int key, int action)
 		}
 	}
 
-	// if (mappedKey != Keys.end())
-	// {
-	// 	if (!m_PressedKeys[mappedKey->second])
-	// 	{
-	// 		m_PressedKeys.insert_or_assign(mappedKey->second, true);
-	// 	}
-	// 	else
-	// 	{
-	// 		m_PressedKeys.insert_or_assign(mappedKey->second, false);
-	// 	}
-	// }
 }
 
 bool InputHandler::keyIsDown(char key)

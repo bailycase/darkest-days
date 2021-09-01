@@ -13,6 +13,8 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "Camera.hpp"
 #include "Window.hpp"
+#include "Model.hpp"
+#include <filesystem>
 
 class Renderer
 {
@@ -28,6 +30,7 @@ private:
     Shader *m_Shader;
     Camera m_Camera;
     GLFWwindow *m_Window;
+    Model m_Model;
     float m_DeltaTime = 0.0f;
     float m_LastFrame = 0.0f;
     void processInput(GLFWwindow *window);
