@@ -1,11 +1,12 @@
 #include "Game.hpp"
 #include <memory>
 
-Game::Game() : m_Renderer(std::make_unique<Renderer>())
+Game::Game() 
 {
     Window *window = new Window();
     m_Window = window->getWindow();
     m_InputHandler = new InputHandler(m_Window);
+    m_Renderer = std::make_unique<Renderer>();
     m_Renderer->Init(m_Window);
 }
 

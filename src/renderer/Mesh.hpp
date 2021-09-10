@@ -3,6 +3,7 @@
 #include "Shader.hpp"
 #include "VertexBuffer.hpp"
 #include "VertexArray.hpp"
+#include "IndexBuffer.hpp"
 #include "VertexBufferLayout.hpp"
 #include <string>
 #include <vector>
@@ -12,12 +13,15 @@ struct Vertex
     glm::vec3 Position;
     glm::vec3 Normal;
     glm::vec2 TexCoords;
+    glm::vec3 Tangent;
+    glm::vec3 Bitangent;
 };
 
 struct MeshTexture
 {
     unsigned int id;
     std::string type;
+    std::string path;
 };
 
 class Mesh
@@ -32,7 +36,6 @@ public:
     void Draw(Shader &shader);
 
 private:
-    VertexArray m_VAO;
-    unsigned int m_VBO, m_EBO;
+    unsigned int m_VBO, m_EBO, m_VAO;
     void SetupMesh();
 };

@@ -10,20 +10,50 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std:
 
 void Mesh::SetupMesh()
 {
-    VertexBuffer vb(&m_Vertices, sizeof(m_Vertices));
-    VertexArray va = m_VAO;
-    m_VAO.CreateArray();
-    VertexBufferLayout layout;
-    layout.Push<float>(3);
-    layout.Push<float>(3);
-    layout.Push<float>(2);
-    m_VAO.AddBuffer(vb, layout);
+    // VertexArray va = m_VAO;
+    // m_VAO.CreateArray();
+    // VertexBuffer vb(&m_Vertices[0], m_Vertices.size() * sizeof(Vertex));
+    // IndexBuffer eb(&m_Indices[0], m_Indices.size() * sizeof(unsigned int));
+    // m_VAO.bind();
+    glGenVertexArrays(1, &m_VAO);
+    glGenBuffers(1, &m_VBO);
+    glGenBuffers(1, &m_EBO);
+    glBindVertexArray(m_VAO);
+    // load data into vertex buffers
+    glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
+    // A great thing about structs is that their memory layout is sequential for all its items.
+    // The effect is that we can simply pass a pointer to the struct and it translates perfectly to a glm::vec3/2 array which
+    // again translates to 3/2 floats which translates to a byte array.
+    glBufferData(GL_ARRAY_BUFFER, m_Vertices.size() * sizeof(Vertex), &m_Vertices[0], GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_Indices.size() * sizeof(unsigned int), &m_Indices[0], GL_STATIC_DRAW);
+
+    // set the vertex attribute pointers
+    // vertex Positions
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)0);
+    // vertex normals
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)offsetof(Vertex, Normal));
+    // vertex texture coords
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)offsetof(Vertex, TexCoords));
+    // vertex tangent
+    glEnableVertexAttribArray(3);
+    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)offsetof(Vertex, Tangent));
+    // vertex bitangent
+    glEnableVertexAttribArray(4);
+    glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void *)offsetof(Vertex, Bitangent));
+    glBindVertexArray(0);
 }
 
 void Mesh::Draw(Shader &shader)
 {
     unsigned int diffuseNr = 1;
     unsigned int specularNr = 1;
+    unsigned int normalNr = 1;
+    unsigned int heightNr = 1;
     for (unsigned int i = 0; i < m_Textures.size(); i++)
     {
         glActiveTexture(GL_TEXTURE0 + i);
@@ -38,13 +68,21 @@ void Mesh::Draw(Shader &shader)
         {
             number = std::to_string(specularNr++);
         }
+        else if (name == "texture_normal")
+        {
+            number = std::to_string(normalNr++);
+        }
+        else if (name == "texture_height")
+        {
+            number = std::to_string(heightNr++);
+        }
 
-        // shader.SetUniformMat4f
+        glUniform1i(glGetUniformLocation(shader.m_RendererID, (name + number).c_str()), i);
         glBindTexture(GL_TEXTURE_2D, m_Textures[i].id);
     }
 
-    glActiveTexture(GL_TEXTURE0);
-    m_VAO.bind();
-    glDrawElements(GL_TRIANGLES, m_Indices.size(), GL_UNSIGNED_INT, &m_Indices);
+    glBindVertexArray(m_VAO);
+    glDrawElements(GL_TRIANGLES, m_Indices.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
+    glActiveTexture(GL_TEXTURE0);
 }

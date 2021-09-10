@@ -19,7 +19,6 @@ struct ShaderProgramSource
 class Shader
 {
 private:
-    unsigned int m_RendererID;
     std::unordered_map<std::string, int> m_UniformLocationCache;
 
 public:
@@ -28,6 +27,7 @@ public:
     ~Shader();
     void Bind() const;
     void Unbind() const;
+    unsigned int m_RendererID;
 
     //handle uniforms
     void SetUniformMat4f(const std::string &name, const glm::mat4 &matrix);
