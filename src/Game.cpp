@@ -1,7 +1,7 @@
 #include "Game.hpp"
 #include <memory>
 
-Game::Game() 
+Game::Game()
 {
     Window *window = new Window();
     m_Window = window->getWindow();
