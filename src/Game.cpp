@@ -3,10 +3,12 @@
 
 Game::Game()
 {
-    Window *window = new Window();
-    m_Window = window->getWindow();
-    m_InputHandler = new InputHandler(m_Window);
-    m_Renderer = std::make_unique<Renderer>();
+    this->m_Coordinator = Coordinator();
+    this->m_Window = Window().getWindow();
+    this->m_InputHandler = new InputHandler(m_Window);
+
+    m_Coordinator.Init();
+    m_Renderer = m_Coordinator.RegisterSystem<RenderSystem>();
     m_Renderer->Init(m_Window);
 }
 
@@ -16,12 +18,12 @@ Game::~Game()
 
 void Game::Run()
 {
-    Lmgui::Init(m_Window);
+    Lmgui().Init(m_Window);
     while (!glfwWindowShouldClose(m_Window))
     {
         glfwSwapBuffers(m_Window);
         m_Renderer->Draw();
-        Lmgui::RenderImgui();
+        Lmgui().RenderImgui(&m_Coordinator);
         glfwPollEvents();
         m_Renderer->Update();
     }

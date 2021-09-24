@@ -12,7 +12,7 @@ void Window::initWindow()
 
 	m_Window = glfwCreateWindow(800, 600, "Darkest Days", NULL, NULL);
 
-	if (&m_Window == NULL)
+	if (m_Window == NULL)
 	{
 		std::cout << "Failed to create GLFW window" << std::endl;
 	}

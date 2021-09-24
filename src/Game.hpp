@@ -1,6 +1,7 @@
 #pragma once
 #include <GLFW/glfw3.h>
-#include "renderer/Renderer.hpp"
+#include "ecs/Systems/RenderSystem.hpp"
+#include "ecs/Managers/Coordinator.hpp"
 #include <glad/glad.h>
 #include <iostream>
 #include <memory>
@@ -19,8 +20,9 @@ public:
 
 private:
     GLFWwindow *m_Window;
-    // Renderer *m_Renderer = nullptr;
-    // std::unique_ptr<GLFWwindow> m_Window;
-    std::unique_ptr<Renderer> m_Renderer;
+    std::shared_ptr<RenderSystem> m_Renderer;
+    // std::shared_ptr<PlayerControlSystem> m_PlayerControlSystem;
     InputHandler *m_InputHandler;
+    Coordinator m_Coordinator;
+    Lmgui Imgui;
 };
