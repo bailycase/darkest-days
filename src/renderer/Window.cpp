@@ -1,4 +1,10 @@
 #include "Window.hpp"
+
+void error_callback(int error, const char* description)
+{
+    fprintf(stderr, "Error: %s\n", description);
+}
+
 void Window::initWindow()
 {
 	if (!glfwInit())
@@ -9,6 +15,8 @@ void Window::initWindow()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	glfwSetErrorCallback(error_callback);
 
 	m_Window = glfwCreateWindow(800, 600, "Darkest Days", NULL, NULL);
 

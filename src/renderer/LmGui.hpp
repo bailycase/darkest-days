@@ -38,7 +38,7 @@ public:
 		{
 			for (const auto &system : coordinator->GetAllSystems())
 			{
-				std::cout << system.first << std::endl;
+				//std::cout << system.first << std::endl;
 				ImGui::Selectable(system.first);
 			};
 			ImGui::EndListBox();
